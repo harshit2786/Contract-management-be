@@ -2,10 +2,9 @@
   "name": "contract-management-be",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsc -b && node ./dist/index.js",
+    "dev": "tsc -b && node ./dist/index",
     "migrate": "npx prisma migrate dev",
     "generate": "npx prisma generate",
     "studio": "npx prisma studio"
@@ -16,7 +15,9 @@
   "description": "",
   "dependencies": {
     "@prisma/client": "^6.0.1",
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "typescript": "^5.7.2",

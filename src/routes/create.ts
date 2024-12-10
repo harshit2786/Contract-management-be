@@ -16,7 +16,7 @@ router.post('/create', async(req : Request,res : Response)=> {
                 JSON.parse(data.data);
             }
             catch(e){
-
+                 res.status(400).json({ error: 'Invalid JSON data' });
             }
         }
         const resp = await prisma.contracts.create({
@@ -28,9 +28,10 @@ router.post('/create', async(req : Request,res : Response)=> {
                 data : data.data,
                 status : "Draft"
             }
-        })
+        });
+        res.status(201).json(resp);
     } catch(e){
-
+        res.status(500).json({ error: 'Failed to create contract' });
     }
 })
 
