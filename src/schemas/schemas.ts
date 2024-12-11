@@ -6,3 +6,11 @@ export const CreateContractSchema = z.object({
     dataType : z.enum(['text','json']),
     data : z.string()
 })
+
+export const UpdateContractSchema = z.object({
+    status : z.enum(['Draft','Finalized']),
+    title : z.string(),
+    clientName : z.string(),
+    dataType : z.enum(['text','json']),
+    data : z.string()
+})
