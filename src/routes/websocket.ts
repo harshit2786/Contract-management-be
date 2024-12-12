@@ -3,7 +3,7 @@ import express, { Request } from 'express';
 import { WebSocket } from "ws";
 
 const router = express.Router();
-
+var expressWs = require('express-ws')(router);
 const SocketStore: WebSocket[] = [];
 
 router.ws('/notification', (ws: WebSocket, req: Request) => {
@@ -22,18 +22,14 @@ router.ws('/notification', (ws: WebSocket, req: Request) => {
             if (type === 'delete') {
                 const deleteMessage = JSON.stringify({ type: 'delete', id });
                 SocketStore.forEach(socket => {
-                    if (socket.readyState === WebSocket.OPEN) {
                         socket.send(deleteMessage);
-                    }
                 });
             } else if (type === 'update') {
                 const contract = await prisma.contracts.findUnique({ where: { id } });
                 if (contract) {
                     const updateMessage = JSON.stringify({ type: 'update', contract });
                     SocketStore.forEach(socket => {
-                        if (socket.readyState === WebSocket.OPEN) {
                             socket.send(updateMessage);
-                        }
                     });
                 } else {
                     console.error(`Contract with id ${id} not found`);
