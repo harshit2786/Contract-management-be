@@ -18,7 +18,6 @@ COPY . .
 
 # Run Prisma migration and generate scripts
 RUN npx prisma generate
-RUN npx prisma migrate dev
 RUN npm install pm2 -g
 
 # Build the TypeScript code

@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc -b",
-    "start": "pm2-runtime ./dist/index.js --no-daemon",
+    "start": "npx prisma migrate dev && pm2-runtime ./dist/index.js --no-daemon",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsc -b && nodemon ./dist/index",
     "migrate": "npx prisma migrate dev",
