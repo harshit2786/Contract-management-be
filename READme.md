@@ -72,4 +72,4 @@ docker run -d -p 3000:3000 -e PORT=3000 -e DATABASE_URL="postgresql://[user]:[pa
 ```
 This will start the server container on the port 3000.
 
-# Note - If facing error while trying to connect to supabase db, try changing port in the supabase postgres string to 5432
+ Note - If facing error while trying to connect to supabase db, try changing port in the supabase postgres string to 5432
