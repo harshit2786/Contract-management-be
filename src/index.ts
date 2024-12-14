@@ -11,8 +11,8 @@ app.use(cors());
 app.use('/api',createRouter);
 app.use('/ws',wsRouter);
 
-app.get('/', (req,res) => {
+app.get('/hello', (req,res) => {
     res.send("Hello World")
 })
 
-app.listen(3000,() => console.log("Running on port 3000"));
+app.listen(process.env.PORT,() => console.log(`Running on port ${process.env.PORT}`));
