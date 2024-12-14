@@ -63,7 +63,7 @@ For building image run the following command:
 docker build -t tagname .
 ```
 
-This will build the image and you will the image id
+This will build the image and you will get the image id
 
 ## 2. Running container
 
