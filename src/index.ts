@@ -7,8 +7,12 @@ import wsRouter from "./routes/websocket"
 
 const app = express();
 expressWs(app);
-app.use(cors())
+app.use(cors());
 app.use('/api',createRouter);
 app.use('/ws',wsRouter);
+
+app.get('/', (req,res) => {
+    res.send("Hello World")
+})
 
 app.listen(3000,() => console.log("Running on port 3000"));
