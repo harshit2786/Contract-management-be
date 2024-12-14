@@ -36,7 +36,7 @@ npm install
 
 ## 3. Migration and client generation
 
-Run these commands to generate and migrate tables to the postgres database:
+Run these commands to generate prisma client and migrate tables to the postgres database:
 
 ```bash
 npm run generate
